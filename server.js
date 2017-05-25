@@ -16,6 +16,10 @@ router.get('/', (req, res) => {
 
 router.route('/palindrome')
     .post((req, res) => {
+
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
         const str = req.body.name;
         console.log(str);
         if(palindrome(str)) res.status(200).json('IS A PALINDROME');
